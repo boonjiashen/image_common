@@ -19,6 +19,14 @@ include_directories(include ${OpenCV_INCLUDE_DIRS})
 add_executable(my_publisher src/my_publisher.cpp)
 target_link_libraries(my_publisher ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 
+# add the webcam publisher example
+add_executable(webcam_publisher src/webcam_publisher.cpp)
+target_link_libraries(webcam_publisher ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+
+# add the video publisher example
+add_executable(video_publisher src/video_publisher.cpp)
+target_link_libraries(video_publisher ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
+
 # add the subscriber example
 add_executable(my_subscriber src/my_subscriber.cpp)
 target_link_libraries(my_subscriber ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})

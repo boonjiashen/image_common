@@ -8,6 +8,7 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg)
   try
   {
     cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
+    cv::waitKey(1);
   }
   catch (cv_bridge::Exception& e)
   {
@@ -22,7 +23,7 @@ int main(int argc, char **argv)
   cv::namedWindow("view");
   cv::startWindowThread();
   image_transport::ImageTransport it(nh);
-  image_transport::Subscriber sub = it.subscribe("camera/image", 1, imageCallback);
+  image_transport::Subscriber sub = it.subscribe("camera/image_raw", 1, imageCallback);
   ros::spin();
   cv::destroyWindow("view");
 }
